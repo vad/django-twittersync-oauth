@@ -26,7 +26,7 @@ class TwitterSyncOAuthHelper(TwitterSyncHelper):
         try:
             results = self.conn.statuses.user_timeline(**params)
         except TwitterHTTPError, e:
-            logging.warning('MainTwitterSyncHelper: connection error',
+            logging.warning('MainTwitterSyncHelper: connection error (user: %s)',
                             params['screen_name'])
             # Twitter often gives 503 errors when the
             # API is overwhelmed.
